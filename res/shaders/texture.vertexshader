@@ -1,0 +1,13 @@
+#version 330 core
+
+layout(location = 0) in vec3 position;
+layout(location = 1) in vec2 inTexturePosition;
+
+uniform mat4 transformMatrix;
+
+out vec2 texturePosition;
+
+void main(){
+	texturePosition = inTexturePosition;
+	gl_Position = transformMatrix * vec4(position.xyz, 1.0);
+}
